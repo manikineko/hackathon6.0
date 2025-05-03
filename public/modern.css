@@ -1,0 +1,510 @@
+/* Modern enhancements and animations for Bunq Travel */
+body {
+  margin-left: 80px; /* Offset for sidebar */
+  background: linear-gradient(135deg, #23272a 0%, #212529 100%);
+  color: #eaf6f6;
+  font-family: 'Merriweather Sans', 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Root variables for consistent theming */
+:root {
+  --bs-gray-100: #1a233a;
+  --bs-gray-200: #202c46;
+  --bs-gray-300: #22304e;
+  --bs-gray-400: #2d395c;
+  --bs-gray-500: #3a4c7a;
+  --bs-gray-600: #425a96;
+  --bs-gray-700: #4a6ac1;
+  --bs-gray-800: #2b3757;
+  --bs-gray-900: #1a2033;
+  --bs-border-color: #274d7c;
+  --glass-bg: rgba(30, 32, 34, 0.82);
+  --input-border: #274d7c;
+  --accent: #32a89d;
+  --accent2: #5865f2;
+  --loader-bg: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+}
+
+/* Background with radial gradient */
+body, .container-fluid, .dashboard-root {
+  background: radial-gradient(ellipse at 30% 30%, #131a2a 60%, #070a13 100%) !important;
+}
+
+/* Cards and tiles without blur */
+.widget-card, .stat-tile, .card, .glass-card {
+  background: rgba(20, 32, 54, 0.92) !important;
+  border-color: #20345a !important;
+  border-radius: 18px !important;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 16px 0 #00ffe022, 0 1.5px 8px 0 #0003;
+  padding: 0.5rem 1.3rem 1.3rem 1.3rem;
+}
+.stat-tile {
+  min-width: 180px;
+  min-height: 90px;
+  margin-bottom: 1rem;
+}
+
+/* Sidebar with blur */
+.modern-sidebar {
+  background: var(--glass-bg) !important;
+  border-right: 2.5px solid var(--accent2) !important;
+  border-top-right-radius: 32px !important;
+  border-bottom-right-radius: 32px !important;
+  box-shadow: 0 4px 32px #00ffe022, 0 2px 12px #0003 !important;
+  backdrop-filter: blur(16px) saturate(1.25) !important;
+  min-width: 72px;
+  max-width: 80px;
+  padding: 1.2rem 0.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+/* Sidebar links */
+.modern-sidebar-link {
+  color: #b7b7b7;
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 0.7rem;
+  transition: background 0.19s, color 0.19s, box-shadow 0.19s;
+  background: rgba(0, 0, 0, 0.06);
+}
+.modern-sidebar-link.active, .modern-sidebar-link:hover {
+  background: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px 0 #32a89d44;
+}
+
+/* Navbar with blur */
+.modern-navbar {
+  margin-left: 80px;
+  background: rgba(40, 40, 60, 0.96);
+  backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 1px 18px #00ffe022, 0 1.5px 8px #0003;
+  border-radius: 18px;
+  border: 1.5px solid var(--input-border);
+  position: sticky;
+  top: 0;
+  z-index: 2001;
+  padding: 0.85rem 1.5rem;
+}
+
+/* Navbar brand and links */
+.modern-navbar-brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff !important;
+  letter-spacing: 1.5px;
+  text-shadow: 0 3px 12px #32a89d77, 0 2px 2px #23272a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.modern-navbar-brand i {
+  color: #32a89d;
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 6px #32a89d88);
+}
+.modern-navbar-list {
+  gap: 0.5rem;
+}
+.modern-navbar-link {
+  color: #eaf6f6 !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0.7rem;
+  border-radius: 8px;
+  padding: 0.35rem 1.1rem;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.modern-navbar-link:hover, .modern-navbar-link:focus {
+  background: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+  color: #fff !important;
+  box-shadow: 0 2px 16px 0 #32a89d44;
+}
+.modern-navbar-toggler {
+  border: none;
+  background: #32a89d;
+  border-radius: 8px;
+}
+
+/* Glassy elements with blur for sidebar and navbar components */
+.glassy {
+  background: var(--glass-bg) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 32px #00ffe022, 0 2px 12px #0003 !important;
+  border: 1.5px solid var(--input-border) !important;
+  transition: background 0.5s, border 0.3s;
+  backdrop-filter: none !important;
+}
+.glassy-icon, .modern-sidebar-link, .modern-navbar-brand {
+  backdrop-filter: blur(14px) saturate(1.25) !important;
+}
+.glassy-scroll {
+  background: var(--glass-bg) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 32px #00ffe022, 0 2px 12px #0003 !important;
+  border: 1.5px solid var(--input-border) !important;
+  transition: background 0.5s, border 0.3s;
+  backdrop-filter: none !important;
+}
+
+
+/* Glassy icon */
+.glassy-icon {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.glassy-icon:hover, .glassy-icon:focus {
+  background: var(--accent2);
+  box-shadow: 0 0 18px var(--accent2), 0 2px 12px #00ffe055;
+  border: 1.5px solid var(--accent2);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+html, body, .glassy-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent2) var(--glass-bg);
+}
+.glassy-scroll::-webkit-scrollbar {
+  width: 8px;
+  background: var(--glass-bg);
+  border-radius: 10px;
+}
+.glassy-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(120deg, var(--accent2), var(--accent));
+  border-radius: 10px;
+  box-shadow: 0 0 6px var(--accent2);
+}
+.glassy-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Chat widget container */
+.chat-widget, .chat-widget.responsive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  min-height: 100vh;
+  background: none !important;
+  box-sizing: border-box;
+  padding-top: 90px;
+  position: relative;
+  z-index: 1;
+  box-shadow: none !important;
+  border: none !important;
+  backdrop-filter: none !important;
+}
+
+/* Chat messages container without blur */
+.chat-messages-centerer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  max-height: 55vh;
+  overflow-y: auto;
+  min-width: 320px;
+  min-height: 40vh;
+  height: 40vh;
+  pointer-events: auto;
+  scroll-behavior: smooth;
+  background: none;
+}
+
+/* Chat bubble row for centering */
+.chat-bubble-row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* Chat bubble with blur */
+.chat-bubble {
+  margin: 0.7em 0;
+  padding: 1.1em 1.3em;
+  border-radius: 24px !important;
+  font-size: 0.97em;
+  line-height: 1.4;
+  word-break: break-word;
+  white-space: pre-line;
+  box-shadow: 0 4px 24px 0 #00ffe033, 0 2px 8px 0 #0003 !important;
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  align-items: flex-start;
+  background: rgba(30, 40, 60, 0.97) !important;
+  color: #e7f2ff;
+  border: 1.5px solid var(--input-border) !important;
+  backdrop-filter: blur(8px);
+  transition: background 0.5s, border 0.3s;
+  position: relative;
+  text-align: left;
+  z-index: 2;
+}
+
+/* Chat message content */
+.chat-message-content {
+  font-size: 1.08rem;
+  line-height: 1.6;
+  word-break: break-word;
+  animation: fadeIn 0.5s;
+}
+
+/* Sticky chat form */
+.chat-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 0.7em;
+  width: 100%;
+  max-width: 480px;
+  gap: 8px;
+  position: fixed;
+  left: 50%;
+  bottom: 1.5em;
+  transform: translateX(-50%);
+  z-index: 12;
+  background: rgba(20, 28, 40, 0.98);
+  border-radius: 24px;
+  box-shadow: 0 2px 16px #0002;
+  border: 1.5px solid var(--input-border);
+}
+
+/* Chat input */
+.chat-input {
+  flex: 1;
+  border-radius: 16px;
+  border: 1.5px solid #274d7c;
+  background: rgba(30, 40, 60, 0.97);
+  color: #c6e6ff;
+  padding: 0.32rem 0.9rem;
+  font-size: 0.97rem;
+  outline: none;
+  width: 100%;
+  height: 38px;
+  min-height: 32px;
+  margin: 0;
+  box-shadow: none;
+  transition: border 0.15s, box-shadow 0.15s;
+}
+.chat-input:focus {
+  border: 1.5px solid #00ffe0;
+  box-shadow: 0 0 0 2px #00ffe022;
+  background: #1a2237;
+}
+
+/* Sticky chat actions */
+.chat-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 700px;
+  justify-content: center;
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  z-index: 11;
+  padding: 0.4em 16px;
+  background: rgba(34, 40, 60, 0.98);
+  border-radius: 18px;
+}
+
+/* Sticky travel buttons */
+.travel-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  position: fixed;
+  left: 50%;
+  bottom: 5.5em;
+  transform: translateX(-50%);
+  z-index: 9;
+  background: rgba(20, 28, 40, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 2px 12px #0002;
+  padding: 0.5em 1em;
+}
+
+/* Buttons with blur */
+.send-btn, .action-btn {
+  min-width: 48px;
+  min-height: 48px;
+  color: var(--accent);
+  padding: 0.6em 1.2em;
+  margin-left: 0.5em;
+  border: none;
+  cursor: pointer;
+  background: rgba(20, 28, 40, 0.7) !important;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #00ffe022, 0 1.5px 8px #0003;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  backdrop-filter: blur(10px);
+}
+.send-btn:active, .action-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 1px 4px #00ffe011;
+}
+.send-btn:focus, .action-btn:focus {
+  outline: 2px solid var(--accent2);
+  outline-offset: 2px;
+}
+
+/* Modern button with blur */
+.modern-btn {
+  background: rgba(50, 168, 157, 0.7); /* Adjusted for transparency */
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.6rem 1.7rem;
+  box-shadow: 0 2px 8px 0 #32a89d44;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  backdrop-filter: blur(10px);
+}
+.modern-btn:hover, .modern-btn:focus {
+  background: rgba(88, 101, 242, 0.7);
+  color: #fff;
+  box-shadow: 0 4px 16px 0 #5865f244;
+}
+
+/* Modern input */
+input.modern-input, select.modern-input {
+  background: rgba(30, 32, 34, 0.82);
+  color: #eaf6f6;
+  border: 1.5px solid #5865f2;
+  border-radius: 10px;
+  padding: 0.7em 1.1em;
+  font-size: 1.1em;
+  outline: none;
+  box-shadow: 0 1px 4px #00ffe011;
+  transition: border-color 0.2s, background 0.3s;
+}
+input.modern-input:focus, select.modern-input:focus {
+  border-color: var(--accent2);
+}
+
+/* Avatar */
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #00ffe022;
+  font-size: 28px;
+  margin-right: 8px;
+  background: #21305c;
+  border: 2.5px solid var(--input-border);
+}
+
+/* AI label */
+.ai-label {
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 2px;
+}
+
+/* Animations */
+.animated-fade-in {
+  animation: fadeIn 0.8s ease;
+}
+.animated-slide-up {
+  animation: slideUp 0.7s cubic-bezier(.47, 1.64, .41, .8);
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Loading spinner */
+.loading-spinner, .loader-animation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 24px;
+  justify-content: center;
+}
+.loading-spinner .dot, .loader-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent2);
+  opacity: 0.85;
+  animation: bounce 1.2s infinite alternate;
+}
+.loader-dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; }
+.loading-spinner .dot:nth-child(2) { animation-delay: 0.2s; }
+.loading-spinner .dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce {
+  from { transform: translateY(0); opacity: 0.7; }
+  to { transform: translateY(-12px); opacity: 1; }
+}
+
+/* Main content panel */
+.modern-main-panel {
+  background: rgba(40, 40, 60, 0.78);
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.17);
+  border: 1.5px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  margin-top: 2.2rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+  max-width: 700px;
+}
+
+/* Remove theme-related elements */
+.theme-btn, .theme-switcher, .theme-toggle, .theme-buttons {
+  display: none !important;
+}

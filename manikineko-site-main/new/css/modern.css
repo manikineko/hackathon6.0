@@ -1,0 +1,403 @@
+/* Modern enhancements and animations for manikineko.nl */
+
+body {
+  background: linear-gradient(135deg, #23272a 0%, #212529 100%);
+  color: #eaf6f6;
+  font-family: 'Merriweather Sans', 'Segoe UI', Arial, sans-serif;
+}
+
+/* --- Modern Glassy Rainbow Navbar --- */
+.modern-navbar {
+  /* Always transparent, glassy look */
+  background: rgba(30,32,34,0.82) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: 0 2px 24px 0 #32a89d44, 0 1.5px 0 0 #5865f2;
+  border-bottom: 2px solid #32a89d44;
+  border-radius: 0 0 24px 24px;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  z-index: 1002;
+}
+
+.modern-navbar-brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff !important;
+  letter-spacing: 1.5px;
+  text-shadow: 0 3px 12px #32a89d77, 0 2px 2px #23272a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.modern-navbar-brand i {
+  color: #32a89d;
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 6px #32a89d88);
+}
+.modern-navbar-list {
+  gap: 0.5rem;
+}
+.modern-navbar-link {
+  color: #eaf6f6 !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0.7rem;
+  border-radius: 8px;
+  padding: 0.35rem 1.1rem;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+  position: relative;
+  z-index: 1;
+}
+.modern-navbar-link:hover, .modern-navbar-link:focus {
+  background: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+  color: #fff !important;
+  box-shadow: 0 2px 16px 0 #32a89d44;
+  text-decoration: none;
+}
+.modern-navbar-toggler {
+  border: none;
+  background: #32a89d;
+  border-radius: 8px;
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  font-size: 1.2rem;
+  transition: background 0.18s;
+}
+.modern-navbar-toggler:hover {
+  background: #5865f2;
+}
+
+/* --- Matrix Rain Overlay (Rainbow) --- */
+.matrix-overlay {
+  position: fixed;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  z-index: 1001;
+  pointer-events: none;
+  opacity: 0.38;
+  filter: blur(0.5px) hue-rotate(90deg) saturate(170%);
+  display: block;
+  /* Rainbow effect is achieved via JS (see js/matrix.js) */
+}
+
+/* Masthead Modernization */
+.modern-masthead {
+  background: linear-gradient(120deg, #23272a 60%, #32a89d 100%);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 8px 32px 0 #32a89d44;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.modern-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 12px #32a89d99, 0 0px 2px #212529;
+  letter-spacing: 2px;
+}
+.modern-subtitle {
+  font-size: 1.5rem;
+  color: #08afaf;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.modern-divider {
+  border-top: 3px solid #08afaf;
+  width: 120px;
+  margin: 1rem auto 1.5rem auto;
+  opacity: 0.8;
+  box-shadow: 0 2px 12px #32a89d44;
+}
+.modern-lead {
+  color: #eaf6f6;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 4px #23272a;
+}
+
+/* Modern Buttons */
+.btn-modern {
+  background: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+  color: #fff !important;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.8rem 2.2rem;
+  box-shadow: 0 2px 16px 0 #32a89d44;
+  transition: background 0.25s, transform 0.18s, box-shadow 0.22s;
+  margin: 0.3rem 0.6rem;
+}
+.btn-modern:hover, .btn-modern:focus {
+  background: linear-gradient(90deg, #5865f2 0%, #32a89d 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 32px 0 #5865f2cc;
+}
+
+/* Discord Widget Styling */
+.discord-widget-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #23272a 0%, #2c2f33 100%);
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(0,0,0,0.25);
+  padding: 32px 0;
+  margin: 32px auto;
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.5s;
+}
+.discord-widget-container:hover {
+  box-shadow: 0 12px 48px 0 #5865f2cc;
+}
+
+/* Section differentiation */
+.page-section {
+  border-radius: 22px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 18px 0 #32a89d33;
+  animation: fadein 1s;
+  background: rgba(44, 47, 51, 0.94);
+  padding: 2.5rem 0.5rem;
+}
+
+.modern-section-title {
+  color: #08afaf;
+  font-weight: 800;
+  font-size: 2.1rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 8px #32a89d55;
+}
+.modern-section-desc {
+  color: #b6eaff;
+  font-size: 1.08rem;
+  margin-bottom: 1.8rem;
+  font-weight: 500;
+}
+
+/* Socials Modern */
+.modern-socials-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+}
+
+/* Discord Section */
+.modern-discord-section {
+  background: linear-gradient(120deg, #23272a 60%, #5865f2 100%);
+}
+.modern-discord-container {
+  padding: 2.5rem 0 1.5rem 0;
+}
+
+/* LLMs & AI Models Section */
+.modern-llm-section {
+  background: linear-gradient(120deg, #23272a 60%, #32a89d 100%);
+  border-radius: 22px;
+  box-shadow: 0 2px 18px 0 #32a89d33;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+.modern-llm-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.3rem;
+  justify-content: center;
+  margin-top: 2.2rem;
+}
+.modern-llm-card {
+  background: rgba(44,47,51,0.97);
+  border-radius: 16px;
+  box-shadow: 0 2px 18px 0 #5865f244;
+  padding: 1.7rem 1.3rem 1.3rem 1.3rem;
+  min-width: 260px;
+  max-width: 320px;
+  flex: 1 1 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  border: 2px solid #32a89d33;
+  transition: box-shadow 0.18s, border 0.18s;
+}
+.modern-llm-card:hover {
+  box-shadow: 0 8px 32px 0 #5865f2cc;
+  border: 2px solid #5865f2;
+}
+.modern-llm-card h3 {
+  color: #08afaf;
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+  font-weight: 800;
+}
+.modern-llm-meta {
+  color: #b6eaff;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+.modern-llm-status {
+  font-size: 0.98rem;
+  margin-bottom: 0.7rem;
+}
+.modern-llm-status .deprecated {
+  color: #ffc107;
+  font-weight: 700;
+}
+.modern-llm-status .active {
+  color: #32a89d;
+  font-weight: 700;
+}
+.modern-llm-card p {
+  color: #eaf6f6;
+  font-size: 1.02rem;
+  margin-bottom: 0.7rem;
+}
+.modern-llm-card a {
+  color: #5865f2;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.18s;
+}
+.modern-llm-card a:hover {
+  color: #32a89d;
+}
+
+/* Yuki bot section */
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Yuki bot section */
+#yuki-bot-section {
+  background: linear-gradient(120deg, #32a89d 0%, #5865f2 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 4px 32px 0 rgba(88,101,242,0.17);
+  animation: fadein 1.2s;
+}
+#yuki-bot-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+#yuki-bot-section ul {
+  font-size: 1.12rem;
+  margin-left: 1.5rem;
+}
+
+/* Game section */
+#game-section {
+  background: linear-gradient(120deg, #212529 0%, #32a89d 100%);
+  color: #fff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  box-shadow: 0 4px 32px 0 rgba(50,168,157,0.17);
+  animation: fadein 1.4s;
+}
+#game-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Popup modal styling */
+#eula-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(30,32,34,0.88);
+  justify-content: center;
+  align-items: center;
+  animation: fadein 0.6s;
+}
+#eula-modal .modern-modal-content {
+  background: linear-gradient(120deg, #23272a 60%, #5865f2 100%);
+  color: #fff;
+  border-radius: 22px;
+  padding: 2.5rem 2rem 2rem 2rem;
+  box-shadow: 0 8px 32px 0 #5865f2cc, 0 0 0 4px #32a89d55;
+  max-width: 420px;
+  width: 94vw;
+  text-align: center;
+  animation: fadein 1.1s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.modern-modal-icon {
+  font-size: 3.2rem;
+  color: #32a89d;
+  margin-bottom: 0.7rem;
+  filter: drop-shadow(0 0 12px #32a89d99);
+}
+.modern-modal-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+.modern-modal-desc {
+  font-size: 1.08rem;
+  color: #eaf6f6;
+  margin-bottom: 1.5rem;
+}
+#eula-modal .modern-modal-content a {
+  color: #08afaf;
+  text-decoration: underline;
+  font-weight: 600;
+}
+#eula-modal .modern-modal-content button {
+  margin-top: 1.5rem;
+  padding: 0.6rem 2.2rem;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #32a89d 0%, #5865f2 100%);
+  color: #fff;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background 0.25s, box-shadow 0.18s;
+  box-shadow: 0 2px 16px 0 #32a89d44;
+}
+#eula-modal .modern-modal-content button:hover {
+  background: linear-gradient(90deg, #5865f2 0%, #32a89d 100%);
+  box-shadow: 0 4px 32px 0 #5865f2cc;
+}
+
+/* Social button hover for modern socials */
+.modern-socials-list .btn-modern {
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  box-shadow: 0 2px 16px 0 #32a89d44;
+}
+.modern-socials-list .btn-modern:hover {
+  transform: translateY(-3px) scale(1.07);
+  background: linear-gradient(90deg, #5865f2 0%, #32a89d 100%);
+  box-shadow: 0 4px 32px 0 #5865f2cc;
+}
+
+/* Custom scrollbar for Discord widget */
+.discord-widget-container iframe {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px 0 #5865f2cc;
+  border: none;
+  overflow: hidden;
+}
